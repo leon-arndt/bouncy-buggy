@@ -20,8 +20,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private Vector3 startPosition;
 
-    [SerializeField]
-    private Transform rotateAxel;
+    [SerializeField] Camera mainCamera;
 
     private void Start()
     {
@@ -55,6 +54,14 @@ public class PlayerController : MonoBehaviour
             speed *= 0.97f;
         }
 
+        //flip
+        if (Input.GetKey(KeyCode.S))
+        {
+            //transform.RotateAround(rotateAxel.position, -10f * transform.right, 50 * Time.deltaTime);
+            rb.AddForce(0.1f * jumpForce * Vector3.up);
+            rb.AddRelativeTorque(100f * Vector3.left);
+        }
+
         //flying through the skies
         if (!Physics.Raycast(transform.position, Vector3.down, 1f))
         {
@@ -69,12 +76,6 @@ public class PlayerController : MonoBehaviour
             else
             {
                 tippedOver = false;
-            }
-
-            //flip
-            if (Input.GetKey(KeyCode.S))
-            {
-                transform.RotateAround(rotateAxel.position, -10f * transform.right, 50 * Time.deltaTime);
             }
 
             //action
@@ -103,9 +104,8 @@ public class PlayerController : MonoBehaviour
         }
 
         //update camera fov according to speed
-        Camera cam = this.gameObject.transform.GetChild(0).GetComponent<Camera>();
-        float desiredFov = Mathf.Lerp(cam.fieldOfView, Mathf.Min(110, 70f + speed + rb.velocity.magnitude), 4f * Time.deltaTime);
-        cam.fieldOfView = desiredFov;
+        float desiredFov = Mathf.Lerp(mainCamera.fieldOfView, Mathf.Min(110, 70f + speed + rb.velocity.magnitude), 4f * Time.deltaTime);
+        mainCamera.fieldOfView = desiredFov;
 
         //respawn if dead
         if (transform.position.y < -4)
