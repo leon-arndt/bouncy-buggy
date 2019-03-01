@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     float acceleration = 0.25f; //was 0.15 before
     float turnSpeed = 150f;
     public float jumpForce = 500f;
+    public float jumpTorqueFactor = 2f;
 
     private Rigidbody rb;
 
@@ -46,23 +47,6 @@ public class PlayerController : MonoBehaviour
         //flying
         if (!Physics.Raycast(transform.position, Vector3.down, 1f))
         {
-            Debug.Log("Can fly");
-            if (Input.GetKey(KeyCode.S) && speed > 15f)
-            {
-                transform.Rotate(turnSpeed * Vector3.left * Time.deltaTime);
-
-                Vector3 lookDir = transform.position - 5f * Vector3.up - this.gameObject.transform.GetChild(0).GetComponent<Camera>().transform.position;
-                lookDir.y = -5f; // keep only the horizontal direction
-                                    //transform.rotation = Quaternion.LookRotation(lookDir);
-                this.gameObject.transform.GetChild(0).GetComponent<Camera>().transform.rotation = Quaternion.Euler(new Vector3(transform.eulerAngles.x, 0, transform.eulerAngles.z));
-                this.gameObject.transform.GetChild(0).GetComponent<Camera>().transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(lookDir), 0.0005f * Time.time);
-                //this.gameObject.transform.GetChild(0).GetComponent<Camera>().transform.LookAt(transform);
-
-                if (speed < maxSpeed)
-                {
-                    speed += 1.05f * acceleration;
-                }
-            }
             doubleTurn = false;
         }
         else //must be grounded
@@ -72,6 +56,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKey(KeyCode.Space))
             {
                 rb.AddForce(jumpForce * Vector3.up);
+                rb.AddRelativeTorque(jumpTorqueFactor * Random.insideUnitSphere);
             }
 
         }
