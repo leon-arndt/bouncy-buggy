@@ -8,17 +8,20 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 0f;
-    bool doubleTurn = false;
 
     float maxSpeed = 36f; // was 32 before
     float acceleration = 0.36f; //was 0.25 before
     float turnSpeed = 150f;
-    public float jumpForce = 700f;
+    private float jumpForce = 500f;
     public float jumpTorqueFactor = 2f;
     public bool tippedOver;
+    public bool flipped;
 
     private Rigidbody rb;
     private Vector3 startPosition;
+
+    [SerializeField]
+    private Transform rotateAxel;
 
     private void Start()
     {
@@ -52,10 +55,9 @@ public class PlayerController : MonoBehaviour
             speed *= 0.97f;
         }
 
-        //flying
+        //flying through the skies
         if (!Physics.Raycast(transform.position, Vector3.down, 1f))
         {
-            doubleTurn = false;
         }
         else //must be grounded
         {
@@ -69,7 +71,11 @@ public class PlayerController : MonoBehaviour
                 tippedOver = false;
             }
 
-            doubleTurn = (Input.GetKey(KeyCode.S));
+            //flip
+            if (Input.GetKey(KeyCode.S))
+            {
+                transform.RotateAround(rotateAxel.position, -10f * transform.right, 50 * Time.deltaTime);
+            }
 
             //action
             if (Input.GetKey(KeyCode.Space))
@@ -86,16 +92,14 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        float factor = doubleTurn ? 2f : 1f;
-
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Rotate(turnSpeed * Vector3.down * factor * Time.deltaTime);
+            transform.Rotate(turnSpeed * Vector3.down * Time.deltaTime);
         }
 
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Rotate(turnSpeed * Vector3.up * factor * Time.deltaTime);
+            transform.Rotate(turnSpeed * Vector3.up * Time.deltaTime);
         }
 
         //update camera fov according to speed
@@ -107,6 +111,7 @@ public class PlayerController : MonoBehaviour
         if (transform.position.y < -4)
         {
             transform.position = startPosition;
+            transform.rotation = Quaternion.Euler(Vector3.zero);
             rb.velocity = Vector3.zero;
         }
     }
@@ -126,5 +131,15 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, newZ));
             yield return null;
         }
+    }
+
+    private void RotateTowardsTarget(Vector3 target, float speed)
+    {
+        Vector3 targetPos = target;
+        Vector3 relativePos = targetPos - transform.position;
+
+        Quaternion desiredRot = Quaternion.LookRotation(relativePos, Vector3.up);
+        Quaternion newRot = Quaternion.Lerp(transform.rotation, desiredRot, speed * Time.deltaTime);
+        transform.rotation = newRot;
     }
 }
