@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     float maxSpeed = 32f; // was 25 before
     float acceleration = 0.25f; //was 0.15 before
     float turnSpeed = 150f;
+    public float jumpForce = 500f;
 
     private Rigidbody rb;
 
@@ -41,9 +42,9 @@ public class PlayerController : MonoBehaviour
                 speed += acceleration;
             }
         }
-        else
+        //else
         //flying
-        if (!Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), 1f))
+        if (!Physics.Raycast(transform.position, Vector3.down, 1f))
         {
             Debug.Log("Can fly");
             if (Input.GetKey(KeyCode.S) && speed > 15f)
@@ -70,7 +71,7 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetKey(KeyCode.Space))
             {
-                
+                rb.AddForce(jumpForce * Vector3.up);
             }
 
         }
@@ -88,7 +89,9 @@ public class PlayerController : MonoBehaviour
         }
 
         //update fov according to speed
-        this.gameObject.transform.GetChild(0).GetComponent<Camera>().fieldOfView = Mathf.Min(110, 70f + speed);
+        Camera cam = this.gameObject.transform.GetChild(0).GetComponent<Camera>();
+        float desiredFov = Mathf.Lerp(cam.fieldOfView, Mathf.Min(110, 70f + speed + rb.velocity.magnitude), 4f * Time.deltaTime);
+        cam.fieldOfView = desiredFov;
     }
 
     private void FixedUpdate()
