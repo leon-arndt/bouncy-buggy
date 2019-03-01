@@ -32,11 +32,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //rotation decay (prevents the robot from tipping over)
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(new Vector3(0, transform.eulerAngles.y, 0)), 0.001f * Time.time);
-
-        //slowly reset the camera to normal
-        transform.GetChild(0).GetComponent<Camera>().transform.rotation = Quaternion.Euler(new Vector3(transform.eulerAngles.x, 0, transform.eulerAngles.z));
-        this.gameObject.transform.GetChild(0).GetComponent<Camera>().transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(new Vector3(0, transform.eulerAngles.y, 0)), 0.001f * Time.time);
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(new Vector3(0, transform.eulerAngles.y, 0)), 0.001f * Time.time);  
 
         //accelerate
         if (Input.GetKey(KeyCode.W))
@@ -102,10 +98,6 @@ public class PlayerController : MonoBehaviour
         {
             transform.Rotate(turnSpeed * Vector3.up * Time.deltaTime);
         }
-
-        //update camera fov according to speed
-        float desiredFov = Mathf.Lerp(mainCamera.fieldOfView, Mathf.Min(110, 70f + speed + rb.velocity.magnitude), 4f * Time.deltaTime);
-        mainCamera.fieldOfView = desiredFov;
 
         //respawn if dead
         if (transform.position.y < -4)
