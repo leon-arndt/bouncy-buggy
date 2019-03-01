@@ -7,6 +7,7 @@ public class FollowCam : MonoBehaviour
     public PlayerController target;
     private Camera cam;
     public Vector3 offset; //0, 1.32, -1.41
+    public float minDistance;
 
     // Start is called before the first frame update
     void Start()
@@ -18,8 +19,14 @@ public class FollowCam : MonoBehaviour
     void FixedUpdate()
     {
         //position
-        Vector3 desiredPos = target.transform.position + offset;
-        transform.position = Vector3.Lerp(transform.position, desiredPos, Time.deltaTime);
+        if (Vector3.Distance(transform.position, target.transform.position) > minDistance)
+        {
+            //this factor makes sure that the lerp slows down as the camera gets closer to stopping completly
+            float desiredTravelFactor = Mathf.Min(1, Vector3.Distance(transform.position, target.transform.position) - minDistance);
+
+            Vector3 desiredPos = target.transform.position + offset;
+            transform.position = Vector3.Lerp(transform.position, desiredPos, desiredTravelFactor * Time.deltaTime);
+        }
 
         //rotation
         transform.LookAt(target.transform);
