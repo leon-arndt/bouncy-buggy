@@ -41,20 +41,19 @@ public class PlayerController : MonoBehaviour
             {
                 speed = Mathf.Min(speed + acceleration, maxSpeed);
             }
-            //speed decay
+            //weak speed decay
             speed *= 0.98f;
         }
         else
         {
-            //speed decay
+            //strong speed decay
             speed *= 0.97f;
         }
 
         //flip
         if (Input.GetKey(KeyCode.S))
         {
-            //transform.RotateAround(rotateAxel.position, -10f * transform.right, 50 * Time.deltaTime);
-            rb.AddForce(0.1f * jumpForce * Vector3.up);
+            rb.AddForce(0.06f * jumpForce * Vector3.up);
             rb.AddRelativeTorque(100f * Vector3.left);
         }
 
