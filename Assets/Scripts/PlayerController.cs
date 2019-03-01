@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     float maxSpeed = 32f; // was 25 before
     float acceleration = 0.25f; //was 0.15 before
     float turnSpeed = 150f;
-    public float jumpForce = 500f;
+    public float jumpForce = 700f;
     public float jumpTorqueFactor = 2f;
 
     private Rigidbody rb;
