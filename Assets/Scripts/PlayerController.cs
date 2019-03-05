@@ -101,9 +101,7 @@ public class PlayerController : MonoBehaviour
         //respawn if dead
         if (transform.position.y < -4)
         {
-            transform.position = startPosition;
-            transform.rotation = Quaternion.Euler(Vector3.zero);
-            rb.velocity = Vector3.zero;
+            GameController.ReloadScene();
         }
     }
 
