@@ -17,7 +17,9 @@ ModelImporter:
     400010: transform3
     2100000: lambert1
     2300000: pillar_hole
+    2300002: //RootNode
     3300000: pillar_hole
+    3300002: //RootNode
     4300000: pillar_hole
     2186277476908879412: ImportLogs
   externalObjects: {}

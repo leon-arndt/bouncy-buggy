@@ -7,21 +7,35 @@ using UnityEngine;
 /// </summary>
 public class Breakable : MonoBehaviour
 {
-    public float disappearAfter;
-    private float disappearSpeed = 0.1f;
+    private const float disappearDelay = 2f;
+    private float disappearAfter = 0f;
+    private float disappearRate = 1f;
+
+    private Renderer rend;
     
     // Start is called before the first frame update
     void Start()
     {
-        disappearAfter = disappearAfter + Random.Range(0, 2);
+        disappearAfter = 0.1f * Vector3.Distance(transform.position, PlayerController.Instance.transform.position);
+
+        if (GetComponent<MeshRenderer>() != null)
+        {
+            rend = GetComponent<MeshRenderer>();
+            rend.material.color = Color.white;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (rend != null)
+        {
+            rend.material.color = Color.Lerp(Color.white, Color.black, Time.timeSinceLevelLoad / disappearAfter);
+        }
+
         if (Time.timeSinceLevelLoad > disappearAfter)
         {
-            transform.Translate(Vector3.down * Time.deltaTime);
+            transform.Translate(Vector3.down * disappearRate * Time.deltaTime);
         }
     }
 }

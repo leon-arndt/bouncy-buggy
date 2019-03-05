@@ -7,6 +7,8 @@ using UnityEngine;
 /// </summary>
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController Instance;
+
     public float speed = 0f;
 
     float maxSpeed = 36f; // was 32 before
@@ -24,6 +26,8 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        Instance = this;
+
         rb = GetComponent<Rigidbody>();
         startPosition = transform.position;
     }
@@ -41,13 +45,10 @@ public class PlayerController : MonoBehaviour
             {
                 speed = Mathf.Min(speed + acceleration, maxSpeed);
             }
-            //weak speed decay
-            speed *= 0.98f;
         }
         else
         {
-            //strong speed decay
-            speed *= 0.97f;
+
         }
 
         //flip
@@ -60,9 +61,14 @@ public class PlayerController : MonoBehaviour
         //flying through the skies
         if (!Physics.Raycast(transform.position, Vector3.down, 1f))
         {
+            //weak speed decay
+            speed *= 0.98f;
         }
         else //must be grounded
         {
+            //strong speed decay
+            speed *= 0.97f;
+
             //figure out if tippedOver
             if (Physics.Raycast(transform.position, transform.right, 1f) || Physics.Raycast(transform.position, -transform.right, 1f))
             {
@@ -81,10 +87,12 @@ public class PlayerController : MonoBehaviour
                     rb.AddForce(jumpForce * Vector3.up);
                     rb.AddRelativeTorque(jumpTorqueFactor * Random.insideUnitSphere);
                 }
-                else
-                {
-                    StartCoroutine(TurnUpright());
-                }
+            }
+
+            //untip
+            if (Input.GetKey(KeyCode.Return))
+            {
+                StartCoroutine(TurnUpright());
             }
         }
 
