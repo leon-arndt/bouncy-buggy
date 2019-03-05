@@ -25,4 +25,12 @@ public class Goal : MonoBehaviour
         yield return new WaitForSeconds(1f);
         StartCoroutine(Turn());
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<PlayerController>())
+        {
+            GameController.ReloadScene();
+        }
+    }
 }
