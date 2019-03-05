@@ -107,7 +107,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //respawn if dead
-        if (transform.position.y < -4)
+        if (transform.position.y < -4 || Input.GetKey(KeyCode.R))
         {
             GameController.ReloadScene();
         }
