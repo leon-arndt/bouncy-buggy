@@ -98,6 +98,7 @@ public class PlayerController : MonoBehaviour
             transform.position = LevelManager.Instance.GetPlayerStart();
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
+            ResetManager.Instance.ResetAll();
         }
     }
 

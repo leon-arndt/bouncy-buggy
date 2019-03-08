@@ -5,17 +5,22 @@ using UnityEngine;
 /// <summary>
 /// This script is used for terrain which disappears after a while
 /// </summary>
-public class Breakable : MonoBehaviour
+public class Breakable : Resettable
 {
     private const float disappearDelay = 1.5f;
     private float disappearAfter = 0f;
     private float disappearRate = 2f;
 
     private Renderer rend;
+    private Vector3 startPosition;
     
     // Start is called before the first frame update
     void Start()
     {
+        ResetManager.Instance.AddObjectToResetList(this);
+
+        startPosition = transform.position;
+
         disappearRate += Random.Range(0, 1);
         disappearAfter = disappearDelay + 0.1f * Vector3.Distance(transform.position, PlayerController.Instance.transform.position);
 
@@ -38,5 +43,15 @@ public class Breakable : MonoBehaviour
         {
             transform.Translate(Vector3.down * disappearRate * Time.deltaTime);
         }
+    }
+
+    public override void Reset()
+    {
+        transform.position = startPosition;
+    }
+
+    private void OnDestroy()
+    {
+        ResetManager.Instance.RemoveObjectFromResetList(this);
     }
 }
