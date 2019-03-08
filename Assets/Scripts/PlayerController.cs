@@ -89,20 +89,15 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Rotate(turnSpeed * Vector3.down * Time.deltaTime);
-        }
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.Rotate(turnSpeed * Vector3.up * Time.deltaTime);
-        }
+        float horizontalInput = Input.GetAxis("Horizontal");
+        transform.Rotate(turnSpeed * horizontalInput * Vector3.up * Time.deltaTime);
 
         //reload and respawn
         if (Input.GetKey(KeyCode.R) || transform.position.y < -4)
         {
             transform.position = LevelManager.Instance.GetPlayerStart();
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
         }
     }
 
