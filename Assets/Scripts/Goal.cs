@@ -32,7 +32,7 @@ public class Goal : MonoBehaviour
     {
         if (other.GetComponent<PlayerController>())
         {
-            GameController.ReloadScene();
+            LevelManager.Instance.LoadNextLevel();
         }
     }
 }

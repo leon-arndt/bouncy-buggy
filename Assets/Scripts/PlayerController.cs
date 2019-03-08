@@ -102,7 +102,7 @@ public class PlayerController : MonoBehaviour
         //reload and respawn
         if (Input.GetKey(KeyCode.R) || transform.position.y < -4)
         {
-            GameController.ReloadScene();
+            transform.position = LevelManager.Instance.GetPlayerStart();
         }
     }
 
