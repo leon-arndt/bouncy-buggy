@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
 
     public float speed = 0f;
     float maxSpeed = 36f; // was 32 before
-    float acceleration = 0.36f; //was 0.25 before
+    float acceleration = 0.4f; //was 0.36f before
     float turnSpeed = 150f;
     private float jumpForce = 500f;
     public float jumpTorqueFactor = 2f;
@@ -93,9 +93,10 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(turnSpeed * horizontalInput * Vector3.up * Time.deltaTime);
 
         //reload and respawn
-        if (Input.GetKey(KeyCode.R) || transform.position.y < -4)
+        if (Input.GetKey(KeyCode.R) || transform.position.y < -4f)
         {
             transform.position = LevelManager.Instance.GetPlayerStart();
+            transform.rotation = Quaternion.Euler(0f, -270f, 0f);
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
             ResetManager.Instance.ResetAll();

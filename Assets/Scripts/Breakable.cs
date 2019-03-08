@@ -10,6 +10,7 @@ public class Breakable : Resettable
     private const float disappearDelay = 1.5f;
     private float disappearAfter = 0f;
     private float disappearRate = 2f;
+    private float timeSinceLevelStart = 0;
 
     private Renderer rend;
     private Vector3 startPosition;
@@ -31,15 +32,20 @@ public class Breakable : Resettable
         }
     }
 
+    private void Update()
+    {
+        timeSinceLevelStart += Time.deltaTime;
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
         if (rend != null)
         {
-            rend.material.color = Color.Lerp(Color.white, Color.black, Time.timeSinceLevelLoad / disappearAfter);
+            rend.material.color = Color.Lerp(Color.white, Color.black, timeSinceLevelStart / disappearAfter);
         }
 
-        if (Time.timeSinceLevelLoad > disappearAfter)
+        if (timeSinceLevelStart > disappearAfter)
         {
             transform.Translate(Vector3.down * disappearRate * Time.deltaTime);
         }
@@ -48,6 +54,7 @@ public class Breakable : Resettable
     public override void Reset()
     {
         transform.position = startPosition;
+        timeSinceLevelStart = 0;
     }
 
     private void OnDestroy()
