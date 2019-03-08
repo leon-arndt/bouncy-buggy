@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
     public static PlayerController Instance;
 
     public float speed = 0f;
-
     float maxSpeed = 36f; // was 32 before
     float acceleration = 0.36f; //was 0.25 before
     float turnSpeed = 150f;
@@ -30,6 +29,8 @@ public class PlayerController : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
         startPosition = transform.position;
+
+        UpdateDistanceUI();
     }
 
     // Update is called once per frame
@@ -47,8 +48,7 @@ public class PlayerController : MonoBehaviour
             }
         }
         else
-        {
-
+        {  
         }
 
         //flip
@@ -70,14 +70,7 @@ public class PlayerController : MonoBehaviour
             speed *= 0.97f;
 
             //figure out if tippedOver
-            if (Physics.Raycast(transform.position, transform.right, 1f) || Physics.Raycast(transform.position, -transform.right, 1f))
-            {
-                tippedOver = true;
-            }
-            else
-            {
-                tippedOver = false;
-            }
+            tippedOver = Physics.Raycast(transform.position, transform.right, 1f) || Physics.Raycast(transform.position, -transform.right, 1f);
 
             //action
             if (Input.GetKey(KeyCode.Space))
@@ -117,6 +110,13 @@ public class PlayerController : MonoBehaviour
     {
         //move the player forward
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
+
+        //performant distance check (calls at most 50 times per second and does not call if buggy is still)
+        //also has improved performance because it omits the square root call
+        if (speed > 1f)
+        {
+            UpdateDistanceUI();
+        }
     }
 
     IEnumerator TurnUpright()
@@ -138,5 +138,12 @@ public class PlayerController : MonoBehaviour
         Quaternion desiredRot = Quaternion.LookRotation(relativePos, Vector3.up);
         Quaternion newRot = Quaternion.Lerp(transform.rotation, desiredRot, speed * Time.deltaTime);
         transform.rotation = newRot;
+    }
+
+    private void UpdateDistanceUI()
+    {
+        Vector3 offset = Goal.Instance.transform.position - transform.position;
+        float sqrLen = offset.sqrMagnitude;
+        UiController.Instance.UpdateDistanceText(sqrLen);
     }
 }

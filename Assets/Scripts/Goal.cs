@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Goal : MonoBehaviour
 {
+    public static Goal Instance;
     Vector3 turnDirection = Vector3.zero;
     float turnSpeed = 5f;
 
     private void Start()
     {
+        Instance = this;
         StartCoroutine(Turn());
     }
 

@@ -7,16 +7,17 @@ using UnityEngine;
 /// </summary>
 public class Breakable : MonoBehaviour
 {
-    private const float disappearDelay = 2f;
+    private const float disappearDelay = 1.5f;
     private float disappearAfter = 0f;
-    private float disappearRate = 1f;
+    private float disappearRate = 2f;
 
     private Renderer rend;
     
     // Start is called before the first frame update
     void Start()
     {
-        disappearAfter = 0.1f * Vector3.Distance(transform.position, PlayerController.Instance.transform.position);
+        disappearRate += Random.Range(0, 1);
+        disappearAfter = disappearDelay + 0.1f * Vector3.Distance(transform.position, PlayerController.Instance.transform.position);
 
         if (GetComponent<MeshRenderer>() != null)
         {
@@ -26,7 +27,7 @@ public class Breakable : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (rend != null)
         {
