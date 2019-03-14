@@ -13,6 +13,12 @@ public class UiController : MonoBehaviour
 
     [SerializeField]
     TextMeshProUGUI distanceText;
+
+    [SerializeField]
+    Animation fadeAnimation;
+
+    [SerializeField]
+    AnimationClip fadeOutClip, fadeInClip;
     
     // Start is called before the first frame update
     void Start()
@@ -30,5 +36,17 @@ public class UiController : MonoBehaviour
     public void UpdateDistanceText(float f)
     {
         distanceText.text = Mathf.Round(f / 10f).ToString() + "m";
+    }
+
+    public void FadeToBlackThenClear()
+    {
+        StartCoroutine(FadeOutThenIn());
+    }
+
+    IEnumerator FadeOutThenIn()
+    {
+        fadeAnimation.Play(fadeOutClip.name);
+        yield return new WaitForSeconds(fadeOutClip.length);
+        fadeAnimation.Play(fadeInClip.name);
     }
 }

@@ -81,25 +81,16 @@ public class PlayerController : MonoBehaviour
                     rb.AddRelativeTorque(jumpTorqueFactor * Random.insideUnitSphere);
                 }
             }
-
-            //untip
-            if (Input.GetKey(KeyCode.Return))
-            {
-                StartCoroutine(TurnUpright());
-            }
         }
 
         float horizontalInput = Input.GetAxis("Horizontal");
         transform.Rotate(turnSpeed * horizontalInput * Vector3.up * Time.deltaTime);
 
         //reload and respawn
-        if (Input.GetKey(KeyCode.R) || transform.position.y < -4f)
+        if (Input.GetKey(KeyCode.R) || transform.position.y < -2f)
         {
-            transform.position = LevelManager.Instance.GetPlayerStart();
-            transform.rotation = Quaternion.Euler(0f, -270f, 0f);
-            rb.velocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
-            ResetManager.Instance.ResetAll();
+            UiController.Instance.FadeToBlackThenClear();
+            StartCoroutine(Reset(0.5f));
         }
     }
 
@@ -118,15 +109,14 @@ public class PlayerController : MonoBehaviour
         AudioManager.Instance.UpdateEngineSound(speed);
     }
 
-    IEnumerator TurnUpright()
+    IEnumerator Reset(float delay)
     {
-        float desiredZ = 0f;
-        for (float f = 0f; f <= 1; f += 0.01f)
-        {
-            float newZ = Mathf.Lerp(transform.rotation.z, desiredZ, f);
-            transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, newZ));
-            yield return null;
-        }
+        yield return new WaitForSeconds(delay);
+        transform.position = LevelManager.Instance.GetPlayerStart();
+        transform.rotation = Quaternion.Euler(0f, -270f, 0f);
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        ResetManager.Instance.ResetAll();
     }
 
     private void RotateTowardsTarget(Vector3 target, float speed)

@@ -1883,6 +1883,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 2126752057}
   distanceText: {fileID: 1455635333}
+  fadeAnimation: {fileID: 1275556030}
+  fadeOutClip: {fileID: 7400000, guid: 672ae3c44f85b594ba0e23acde202b21, type: 2}
+  fadeInClip: {fileID: 7400000, guid: bcb572e23c3c38140ba4553b6b71d0c0, type: 2}
 --- !u!1 &1834307706
 GameObject:
   m_ObjectHideFlags: 0
