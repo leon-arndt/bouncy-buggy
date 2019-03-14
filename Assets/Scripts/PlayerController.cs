@@ -114,6 +114,8 @@ public class PlayerController : MonoBehaviour
         {
             UpdateDistanceUI();
         }
+
+        AudioManager.Instance.UpdateEngineSound(speed);
     }
 
     IEnumerator TurnUpright()
