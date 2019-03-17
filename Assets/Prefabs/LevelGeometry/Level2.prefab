@@ -35,7 +35,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 437416171049345979}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Level2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -472,6 +472,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pillar_standard
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e79bdc0a13725ba4c82092a36af0c1db, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e79bdc0a13725ba4c82092a36af0c1db, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.175597
@@ -541,6 +545,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: goal
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3d83a567212b5a1458302b217fd5d3fe, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 3d83a567212b5a1458302b217fd5d3fe, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 3d83a567212b5a1458302b217fd5d3fe, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3d83a567212b5a1458302b217fd5d3fe, type: 3}
       propertyPath: m_LocalPosition.x
       value: 44.846226
@@ -597,14 +613,14 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.65155065
       objectReference: {fileID: 0}
-    - target: {fileID: 2300000, guid: 3d83a567212b5a1458302b217fd5d3fe, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 861262dab2686744cb6c23518a03a657, type: 2}
     - target: {fileID: 2300002, guid: 3d83a567212b5a1458302b217fd5d3fe, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3b060106dabfb1d4caf84e85ffaebdc6, type: 2}
+    - target: {fileID: 2300000, guid: 3d83a567212b5a1458302b217fd5d3fe, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 861262dab2686744cb6c23518a03a657, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d83a567212b5a1458302b217fd5d3fe, type: 3}
 --- !u!1 &437416171230782095 stripped
@@ -629,6 +645,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 766bdafb523203b42a53d4490ba11454, type: 3}
       propertyPath: m_Name
       value: pillar_ramp (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 766bdafb523203b42a53d4490ba11454, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 766bdafb523203b42a53d4490ba11454, type: 3}
       propertyPath: m_LocalPosition.x
@@ -707,6 +727,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pillar_standard (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e79bdc0a13725ba4c82092a36af0c1db, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e79bdc0a13725ba4c82092a36af0c1db, type: 3}
       propertyPath: m_LocalPosition.x
       value: 44.229996
@@ -775,6 +799,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 766bdafb523203b42a53d4490ba11454, type: 3}
       propertyPath: m_Name
       value: pillar_ramp (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 766bdafb523203b42a53d4490ba11454, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 766bdafb523203b42a53d4490ba11454, type: 3}
       propertyPath: m_LocalPosition.x
@@ -853,6 +881,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pillar_ramp
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 766bdafb523203b42a53d4490ba11454, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 766bdafb523203b42a53d4490ba11454, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.77
@@ -929,6 +961,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 766bdafb523203b42a53d4490ba11454, type: 3}
       propertyPath: m_Name
       value: pillar_ramp (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 766bdafb523203b42a53d4490ba11454, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 766bdafb523203b42a53d4490ba11454, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1007,6 +1043,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pillar_ramp (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 766bdafb523203b42a53d4490ba11454, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 766bdafb523203b42a53d4490ba11454, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.96
@@ -1083,6 +1123,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 766bdafb523203b42a53d4490ba11454, type: 3}
       propertyPath: m_Name
       value: pillar_ramp (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 766bdafb523203b42a53d4490ba11454, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 766bdafb523203b42a53d4490ba11454, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1161,6 +1205,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pillar_ramp (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 766bdafb523203b42a53d4490ba11454, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 766bdafb523203b42a53d4490ba11454, type: 3}
       propertyPath: m_LocalPosition.x
       value: 32.6
@@ -1237,6 +1285,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 766bdafb523203b42a53d4490ba11454, type: 3}
       propertyPath: m_Name
       value: pillar_ramp (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 766bdafb523203b42a53d4490ba11454, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 766bdafb523203b42a53d4490ba11454, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1315,6 +1367,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pillar_ramp (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 766bdafb523203b42a53d4490ba11454, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 766bdafb523203b42a53d4490ba11454, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.72
@@ -1391,6 +1447,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 766bdafb523203b42a53d4490ba11454, type: 3}
       propertyPath: m_Name
       value: pillar_ramp (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 766bdafb523203b42a53d4490ba11454, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 766bdafb523203b42a53d4490ba11454, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1469,6 +1529,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pillar_ramp (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 766bdafb523203b42a53d4490ba11454, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 766bdafb523203b42a53d4490ba11454, type: 3}
       propertyPath: m_LocalPosition.x
       value: 37.8
@@ -1546,6 +1610,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pillar_ramp (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 766bdafb523203b42a53d4490ba11454, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 766bdafb523203b42a53d4490ba11454, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.32
@@ -1622,6 +1690,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 766bdafb523203b42a53d4490ba11454, type: 3}
       propertyPath: m_Name
       value: pillar_ramp (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 766bdafb523203b42a53d4490ba11454, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 766bdafb523203b42a53d4490ba11454, type: 3}
       propertyPath: m_LocalPosition.x
