@@ -1101,8 +1101,8 @@ MonoBehaviour:
       colorBlindnessType: 0
       colorBlindnessStrength: 1
   m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
-  m_ShowToolkit: 0
-  m_ShowCustomSorter: 0
+  m_ShowToolkit: 1
+  m_ShowCustomSorter: 1
   breakBeforeColorGrading: 0
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
@@ -1148,7 +1148,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   glowType: 0
   glowTint: {r: 1, g: 1, b: 1, a: 0}
-  blurSpreadInner: 0.812
+  blurSpreadInner: 0.15
   blurIterations: 5
   glowIntensityInner: 0.4
   samples: 2
