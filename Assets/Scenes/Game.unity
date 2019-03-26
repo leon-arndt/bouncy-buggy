@@ -958,6 +958,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+  horizontalInput: 0
   jumpTorqueFactor: 2
   tippedOver: 0
   flipped: 0
@@ -2449,6 +2450,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: buggy_ver01
       objectReference: {fileID: 0}
+    - target: {fileID: 100014, guid: ef980ddd45708934ca0a1ce478327f68, type: 3}
+      propertyPath: m_Name
+      value: Wheel FR
+      objectReference: {fileID: 0}
+    - target: {fileID: 100016, guid: ef980ddd45708934ca0a1ce478327f68, type: 3}
+      propertyPath: m_Name
+      value: Wheel FL
+      objectReference: {fileID: 0}
+    - target: {fileID: 100026, guid: ef980ddd45708934ca0a1ce478327f68, type: 3}
+      propertyPath: m_Name
+      value: Wheel BR
+      objectReference: {fileID: 0}
+    - target: {fileID: 100028, guid: ef980ddd45708934ca0a1ce478327f68, type: 3}
+      propertyPath: m_Name
+      value: Wheel BL
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ef980ddd45708934ca0a1ce478327f68, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.06
@@ -2601,6 +2618,82 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1906869947}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1906869949 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100028, guid: ef980ddd45708934ca0a1ce478327f68,
+    type: 3}
+  m_PrefabInstance: {fileID: 1906869947}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1906869950 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100026, guid: ef980ddd45708934ca0a1ce478327f68,
+    type: 3}
+  m_PrefabInstance: {fileID: 1906869947}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1906869951 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100016, guid: ef980ddd45708934ca0a1ce478327f68,
+    type: 3}
+  m_PrefabInstance: {fileID: 1906869947}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1906869952 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100014, guid: ef980ddd45708934ca0a1ce478327f68,
+    type: 3}
+  m_PrefabInstance: {fileID: 1906869947}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1906869953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906869949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a59908fdcc1bd3645a81056c6705cb5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheelType: 0
+--- !u!114 &1906869954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906869950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a59908fdcc1bd3645a81056c6705cb5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheelType: 1
+--- !u!114 &1906869955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906869951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a59908fdcc1bd3645a81056c6705cb5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheelType: 0
+--- !u!114 &1906869956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906869952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a59908fdcc1bd3645a81056c6705cb5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheelType: 1
 --- !u!1 &1910096325
 GameObject:
   m_ObjectHideFlags: 0

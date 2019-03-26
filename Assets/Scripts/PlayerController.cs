@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public static PlayerController Instance;
 
     public float speed = 0f;
+    public float horizontalInput = 0;
     float maxSpeed = 36f; // was 32 before
     float acceleration = 0.4f; //was 0.36f before
     float turnSpeed = 150f;
@@ -83,7 +84,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        float horizontalInput = Input.GetAxis("Horizontal");
+        horizontalInput = Input.GetAxis("Horizontal");
         transform.Rotate(turnSpeed * horizontalInput * Vector3.up * Time.deltaTime);
 
         //reload and respawn
