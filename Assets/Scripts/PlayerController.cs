@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(new Vector3(0, transform.eulerAngles.y, 0)), 0.001f * Time.time);
 
         //accelerate
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetAxis("Acceleration") > 0)
         {
             if (speed < maxSpeed)
             {
@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
             tippedOver = Physics.Raycast(transform.position, transform.right, 1f) || Physics.Raycast(transform.position, -transform.right, 1f);
 
             //action
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetAxis("Jump") > 0)
             {
                 if (!tippedOver)
                 {
