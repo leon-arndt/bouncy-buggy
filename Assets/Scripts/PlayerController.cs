@@ -52,13 +52,6 @@ public class PlayerController : MonoBehaviour
         {  
         }
 
-        //flip
-        if (Input.GetKey(KeyCode.S))
-        {
-            rb.AddForce(0.06f * jumpForce * Vector3.up);
-            rb.AddRelativeTorque(100f * Vector3.left);
-        }
-
         //flying through the skies
         if (!Physics.Raycast(transform.position, Vector3.down, 1f))
         {

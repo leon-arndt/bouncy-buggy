@@ -28,7 +28,7 @@ public class Breakable : Resettable
         if (GetComponent<MeshRenderer>() != null)
         {
             rend = GetComponent<MeshRenderer>();
-            //rend.material.color = Color.white;
+            rend.material.color = Color.white;
         }
     }
 
@@ -42,7 +42,7 @@ public class Breakable : Resettable
     {
         if (rend != null)
         {
-            //rend.material.color = Color.Lerp(Color.white, Color.black, timeSinceLevelStart / disappearAfter);
+            rend.material.color = Color.Lerp(Color.white, Color.black, timeSinceLevelStart / disappearAfter);
         }
 
         if (timeSinceLevelStart > disappearAfter)
