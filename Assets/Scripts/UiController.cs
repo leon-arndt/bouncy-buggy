@@ -33,9 +33,9 @@ public class UiController : MonoBehaviour
         
     }
 
-    public void UpdateDistanceText(float f)
+    public void UpdateDistanceText(float srqDistance)
     {
-        distanceText.text = Mathf.Round(f / 10f).ToString() + "m";
+        distanceText.text = Mathf.Round(srqDistance / 30f).ToString() + "m";
     }
 
     public void FadeToBlackThenClear()

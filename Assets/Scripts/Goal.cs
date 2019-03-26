@@ -8,9 +8,13 @@ public class Goal : MonoBehaviour
     Vector3 turnDirection = Vector3.zero;
     float turnSpeed = 5f;
 
-    private void Start()
+    private void Awake()
     {
         Instance = this;
+    }
+
+    private void Start()
+    {
         StartCoroutine(Turn());
     }
 

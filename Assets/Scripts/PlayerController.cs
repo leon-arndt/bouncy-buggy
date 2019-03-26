@@ -30,8 +30,6 @@ public class PlayerController : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
         startPosition = transform.position;
-
-        UpdateDistanceUI();
     }
 
     // Update is called once per frame

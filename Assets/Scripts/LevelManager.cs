@@ -30,6 +30,8 @@ public class LevelManager : MonoBehaviour
 
         //update player position
         PlayerController.Instance.transform.position = levels[index].playerStart;
+
+        Goal.Instance = FindObjectOfType<Goal>();
     }
 
     public void LoadNextLevel()
