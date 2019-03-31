@@ -82,6 +82,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.R) || transform.position.y < -2f)
         {
             UiController.Instance.FadeToBlackThenClear();
+            AudioManager.Instance.ReviveMusic();
             StartCoroutine(Reset(0.5f));
         }
     }

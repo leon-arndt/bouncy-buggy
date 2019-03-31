@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Level0
   m_EditorClassIdentifier: 
   geometry: {fileID: 437416171049345976, guid: 12c576b2441d6ff429a546685bd4acf8, type: 3}
-  playerStart: {x: -23.81, y: 12.97, z: -27.08}
+  playerStart: {x: -26.8, y: 12.97, z: -28.4}
