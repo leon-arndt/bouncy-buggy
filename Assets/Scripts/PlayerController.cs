@@ -105,7 +105,8 @@ public class PlayerController : MonoBehaviour
     IEnumerator Reset(float delay)
     {
         yield return new WaitForSeconds(delay);
-        transform.position = LevelManager.Instance.GetPlayerStart();
+        //transform.position = LevelManager.Instance.GetPlayerStart();
+        transform.position = startPosition;
         transform.rotation = Quaternion.Euler(0f, -270f, 0f);
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
